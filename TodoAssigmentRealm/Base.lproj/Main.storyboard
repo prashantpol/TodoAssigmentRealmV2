@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Todo Table View Controller-->
+        <!--Todo's-->
         <scene sceneID="bPm-JA-PgH">
             <objects>
                 <tableViewController id="Zgy-4h-hFd" customClass="TodoTableViewController" customModule="TodoAssigmentRealm" customModuleProvider="target" sceneMemberID="viewController">
@@ -53,14 +53,14 @@
                             <outlet property="delegate" destination="Zgy-4h-hFd" id="WYp-pj-8w5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="sSj-8R-cTA">
+                    <navigationItem key="navigationItem" title="Todo's" id="sSj-8R-cTA">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="DzQ-hQ-hyV">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wi0-j8-ZOb">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
-                                    <segue destination="nlE-pt-40N" kind="show" identifier="editSegue" id="eiV-Za-vF5"/>
+                                    <segue destination="nlE-pt-40N" kind="show" identifier="addSegue" id="eiV-Za-vF5"/>
                                 </connections>
                             </button>
                         </barButtonItem>

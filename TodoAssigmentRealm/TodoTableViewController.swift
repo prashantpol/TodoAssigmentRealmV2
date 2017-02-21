@@ -13,20 +13,29 @@ class TodoTableViewController:  UITableViewController {
 
     //var todo=[Todo]()
       var todos : [Todo] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     
        
         //Loading Database data 
             print("testing")
-        let realm = try! Realm()
-        todos =  Array(realm.objects(Todo.self))
-        print(todos.count)
+       
        
     }
     
-   
+    func fetchData()
+    {
+        let realm = try! Realm()
+        todos =  Array(realm.objects(Todo.self))
+        print(todos.count)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchData()
+        
+        self.tableView?.reloadData()   // ...and it is also visible here.
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -84,6 +93,18 @@ class TodoTableViewController:  UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        if(segue.identifier=="addSegue")
+        {
+             if let destinationViewController = segue.destination as? SaveTodoViewController {
+                //            let indexPath = self.tableView.indexPathForSelectedRow
+              //  let row = self.tableView.indexPathForSelectedRow!.row
+                let action = "Save"
+                
+                destinationViewController.action = action
+                
+            }
+        }
+        else{
         if let destinationViewController = segue.destination as? SaveTodoViewController {
 //            let indexPath = self.tableView.indexPathForSelectedRow
             let row = self.tableView.indexPathForSelectedRow!.row
@@ -91,6 +112,7 @@ class TodoTableViewController:  UITableViewController {
      
             destinationViewController.todosingle = todos[row]
 
+        }
         }
 //        if segue.identifier == "editSegue" {
 //            var nextScene =  segue.destination as! SaveTodoViewController

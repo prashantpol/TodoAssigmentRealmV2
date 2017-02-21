@@ -18,6 +18,9 @@ class SaveTodoViewController: UIViewController {
 
     @IBOutlet weak var lblnotes: UITextField!
     @IBOutlet weak var lblname: UITextField!
+    var action :String = ""
+
+    
     var rownum=0
     var name:String = ""
     var notes:String = ""
@@ -48,10 +51,11 @@ class SaveTodoViewController: UIViewController {
     }
     
     @IBAction func btn_save(_ sender: UIButton) {
-        
+        print("Enter Here.....")
+
         let realm = try! Realm()
         
-        if(todosingle.name != nil){
+        if(action != "Save"){
             try! realm.write {
                 //Updating Object Realm DB
                 todosingle.name = lblname.text!
@@ -60,8 +64,10 @@ class SaveTodoViewController: UIViewController {
                 delegate?.saveTask(data: todosingle)
                 //Pop up last activity
                 self.navigationController?.popViewController(animated: true)
-            }
-        }else{
+             }
+        }
+        else{
+            print("Saving.....")
             let newTodo=Todo()
             newTodo.name=lblname.text!
             newTodo.notes=lblnotes.text!
@@ -74,6 +80,7 @@ class SaveTodoViewController: UIViewController {
                 delegate?.saveTask(data: newTodo)
                 //Pop up last activity
                 self.navigationController?.popViewController(animated: true)
+                action = ""
             }
         }
     }
