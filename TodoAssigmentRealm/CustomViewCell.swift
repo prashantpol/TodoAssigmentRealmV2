@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class CustomViewCell: UITableViewCell {
  
@@ -26,6 +27,8 @@ class CustomViewCell: UITableViewCell {
         {
             lblname.textColor=UIColor.black;
             lblname.font=UIFont.systemFont(ofSize: 18, weight: 0)
+            
+            
         }
         else
         {

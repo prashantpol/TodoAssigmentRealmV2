@@ -19,13 +19,21 @@ class SaveTodoViewController: UIViewController {
     @IBOutlet weak var lblnotes: UITextField!
     @IBOutlet weak var lblname: UITextField!
     var rownum=0
-    
+    var name:String = ""
+    var notes:String = ""
       var todos : [Todo] = []
     var todosingle :Todo = Todo()
     var delegate: SaveDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if(todosingle.name == nil)
+        {
+            lblname.text=todosingle.name
+            lblnotes.text=todosingle.notes
+        }
+        
         let realm = try! Realm()
         todos =  Array(realm.objects(Todo.self))
         print(todos.count)

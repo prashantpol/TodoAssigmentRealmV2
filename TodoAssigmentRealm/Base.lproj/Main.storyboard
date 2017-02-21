@@ -44,7 +44,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Edit"/>
                                             <connections>
-                                                <segue destination="nlE-pt-40N" kind="show" id="buc-tu-Ynu"/>
+                                                <segue destination="nlE-pt-40N" kind="show" identifier="addSegue" id="buc-tu-Ynu"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -60,7 +60,18 @@
                             <outlet property="delegate" destination="Zgy-4h-hFd" id="WYp-pj-8w5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="sSj-8R-cTA"/>
+                    <navigationItem key="navigationItem" id="sSj-8R-cTA">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="DzQ-hQ-hyV">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wi0-j8-ZOb">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <segue destination="nlE-pt-40N" kind="show" id="eiV-Za-vF5"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3tl-ex-cPt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -149,4 +160,7 @@
     <resources>
         <image name="save" width="407" height="384"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="buc-tu-Ynu"/>
+    </inferredMetricsTieBreakers>
 </document>

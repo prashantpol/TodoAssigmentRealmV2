@@ -16,7 +16,8 @@ class TodoTableViewController:  UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
+       
         //Loading Database data 
             print("testing")
         let realm = try! Realm()
@@ -67,20 +68,17 @@ class TodoTableViewController:  UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        
-//        if let destinationViewController = segue.destination as? SaveTodoViewController {
-//            destinationViewController.delegate = self
-//        }
-        
-        if let destinationViewController = segue.destination as? SaveTodoViewController {
-            let row = self.tableView.indexPathForSelectedRow!.row
-            let name = todos[row].name;
-            print(row)
-            print(name)
-            destinationViewController.todosingle = todos[row]
-            destinationViewController.rownum = row
-           // destinationViewController.delegate = self
-        }
+        //print( self.tableView.indexPathForSelectedRow!.row)
+
+ 
+        //if let dvc = segue.destination as? SaveTodoViewController {
+
+        //Transfer data from one page to other
+        //let row = self.tableView.indexPathForSelectedRow!.row
+            var viewController = segue.destination as! SaveTodoViewController
+            // your new view controller should have property that will store passed value
+         //   viewController.name = (todos[(self.tableView.indexPathForSelectedRow?.row)!] as AnyObject) as! String
+         //}
     }
  
 
