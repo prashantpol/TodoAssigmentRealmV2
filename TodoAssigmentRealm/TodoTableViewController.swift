@@ -1,25 +1,28 @@
 //
 //  TodoTableViewController.swift
 //  TodoAssigmentRealm
-//
+// id : 300906092
 //  Created by Prashant Pol on 2017-02-21.
 //  Copyright © 2017 Polorg. All rights reserved.
 //
 
 import UIKit
+import RealmSwift
 
 class TodoTableViewController:  UITableViewController {
 
-    var todo=[Todo]()
+    //var todo=[Todo]()
+      var todos : [Todo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        //Loading Database data 
+            print("testing")
+        let realm = try! Realm()
+        todos =  Array(realm.objects(Todo.self))
+        print(todos.count)
+       
     }
     
    
@@ -32,18 +35,31 @@ class TodoTableViewController:  UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        print(todos.count)
+
+        return todos.count
     }
 
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomViewCell
+         
+        //configuring table cell
+        
+        let todo = self.todos[indexPath.row]
 
+        cell.lblname.text=todo.name
+        if(todo.status==true)
+        {
+            cell.swtichTodo.setOn(true, animated: true)
+
+        }
+        
         // Configure the cell...
 
         return cell

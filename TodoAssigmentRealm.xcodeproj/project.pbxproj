@@ -21,6 +21,7 @@
 		EA7316091E5C95BA0086A75F /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7316081E5C95BA0086A75F /* Todo.swift */; };
 		EA73160B1E5C96AA0086A75F /* TodoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA73160A1E5C96AA0086A75F /* TodoTableViewController.swift */; };
 		EA73160D1E5C9D9D0086A75F /* SaveTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA73160C1E5C9D9D0086A75F /* SaveTodoViewController.swift */; };
+		EA73160F1E5CA8970086A75F /* CustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA73160E1E5CA8970086A75F /* CustomViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +52,7 @@
 		EA7316081E5C95BA0086A75F /* Todo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		EA73160A1E5C96AA0086A75F /* TodoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoTableViewController.swift; sourceTree = "<group>"; };
 		EA73160C1E5C9D9D0086A75F /* SaveTodoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveTodoViewController.swift; sourceTree = "<group>"; };
+		EA73160E1E5CA8970086A75F /* CustomViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				EA7316081E5C95BA0086A75F /* Todo.swift */,
 				EA73160A1E5C96AA0086A75F /* TodoTableViewController.swift */,
 				EA73160C1E5C9D9D0086A75F /* SaveTodoViewController.swift */,
+				EA73160E1E5CA8970086A75F /* CustomViewCell.swift */,
 			);
 			path = TodoAssigmentRealm;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				EA7316071E5C8F170086A75F /* RealmSwift.framework in Sources */,
 				EA7315F01E5C8ED10086A75F /* ViewController.swift in Sources */,
 				EA7315EE1E5C8ED10086A75F /* AppDelegate.swift in Sources */,
+				EA73160F1E5CA8970086A75F /* CustomViewCell.swift in Sources */,
 				EA73160D1E5C9D9D0086A75F /* SaveTodoViewController.swift in Sources */,
 				EA7316091E5C95BA0086A75F /* Todo.swift in Sources */,
 			);
