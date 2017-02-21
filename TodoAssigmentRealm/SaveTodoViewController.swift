@@ -18,7 +18,10 @@ class SaveTodoViewController: UIViewController {
 
     @IBOutlet weak var lblnotes: UITextField!
     @IBOutlet weak var lblname: UITextField!
+    var rownum=0
+    
       var todos : [Todo] = []
+    var todosingle :Todo = Todo()
     var delegate: SaveDelegate?
     
     override func viewDidLoad() {

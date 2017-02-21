@@ -56,7 +56,7 @@ class TodoTableViewController:  UITableViewController {
         cell.lblname.text=todo.name
         if(todo.status==true)
         {
-            cell.swtichTodo.setOn(true, animated: true)
+            cell.switchTodo.setOn(true, animated: true)
 
         }
         
@@ -64,7 +64,25 @@ class TodoTableViewController:  UITableViewController {
 
         return cell
     }
-  
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+//        if let destinationViewController = segue.destination as? SaveTodoViewController {
+//            destinationViewController.delegate = self
+//        }
+        
+        if let destinationViewController = segue.destination as? SaveTodoViewController {
+            let row = self.tableView.indexPathForSelectedRow!.row
+            let name = todos[row].name;
+            print(row)
+            print(name)
+            destinationViewController.todosingle = todos[row]
+            destinationViewController.rownum = row
+           // destinationViewController.delegate = self
+        }
+    }
+ 
 
     /*
     // Override to support conditional editing of the table view.
