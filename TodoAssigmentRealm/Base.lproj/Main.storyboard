@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="67"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dp4-q3-lTg" id="QjJ-Xj-5Hi">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bg6-8I-Gb2">
@@ -39,19 +39,12 @@
                                                 <action selector="todoSwitch:" destination="dp4-q3-lTg" eventType="valueChanged" id="cI9-pj-M13"/>
                                             </connections>
                                         </switch>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8JE-zX-kfW">
-                                            <rect key="frame" x="329" y="18" width="30" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Edit"/>
-                                            <connections>
-                                                <segue destination="nlE-pt-40N" kind="show" identifier="addSegue" id="buc-tu-Ynu"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="lblname" destination="bg6-8I-Gb2" id="NLC-1G-oz0"/>
                                     <outlet property="switchTodo" destination="Dtz-Sx-mvP" id="y34-AZ-uhp"/>
+                                    <segue destination="nlE-pt-40N" kind="show" id="5hf-EG-p8R"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -67,7 +60,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
-                                    <segue destination="nlE-pt-40N" kind="show" id="eiV-Za-vF5"/>
+                                    <segue destination="nlE-pt-40N" kind="show" identifier="editSegue" id="eiV-Za-vF5"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -161,6 +154,6 @@
         <image name="save" width="407" height="384"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="buc-tu-Ynu"/>
+        <segue reference="eiV-Za-vF5"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -61,22 +61,57 @@ class TodoTableViewController:  UITableViewController {
 
         }
         
+        cell.switchTodo.tag = indexPath.row
+        cell.switchTodo.addTarget(self, action: #selector(TodoTableViewController.switchChanged(_:)), for: UIControlEvents.valueChanged)
+        
         // Configure the cell...
 
         return cell
     }
     
+    
+    
+    func switchChanged(_ mySwitch: UISwitch!) {
+        let value = mySwitch.isOn
+        print(value)
+        print(mySwitch.tag)
+        let realm = try! Realm()
+        try! realm.write {
+            todos[mySwitch.tag].status = value
+        }
+        // Do something
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let destinationViewController = segue.destination as? SaveTodoViewController {
+//            let indexPath = self.tableView.indexPathForSelectedRow
+            let row = self.tableView.indexPathForSelectedRow!.row
+            let name = todos[row].name;
+     
+            destinationViewController.todosingle = todos[row]
+
+        }
+//        if segue.identifier == "editSegue" {
+//            var nextScene =  segue.destination as! SaveTodoViewController
+//            
+//            // Pass the selected object to the new view controller.
+//            if let indexPath = self.tableView.indexPathForSelectedRow {
+//                let todosingle = todos[indexPath.row]
+//                print(todosingle.name)
+//                nextScene.todosingle = todosingle
+//            }
+//        }
         
         //print( self.tableView.indexPathForSelectedRow!.row)
 
- 
+       
+        
         //if let dvc = segue.destination as? SaveTodoViewController {
 
         //Transfer data from one page to other
         //let row = self.tableView.indexPathForSelectedRow!.row
-            var viewController = segue.destination as! SaveTodoViewController
-            // your new view controller should have property that will store passed value
+             // your new view controller should have property that will store passed value
          //   viewController.name = (todos[(self.tableView.indexPathForSelectedRow?.row)!] as AnyObject) as! String
          //}
     }

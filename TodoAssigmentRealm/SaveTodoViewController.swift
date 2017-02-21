@@ -28,7 +28,8 @@ class SaveTodoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if(todosingle.name == nil)
+        print(todosingle.name)
+        if(todosingle.name != nil)
         {
             lblname.text=todosingle.name
             lblnotes.text=todosingle.notes
@@ -39,6 +40,7 @@ class SaveTodoViewController: UIViewController {
         print(todos.count)
         // Do any additional setup after loading the view.
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -47,26 +49,33 @@ class SaveTodoViewController: UIViewController {
     
     @IBAction func btn_save(_ sender: UIButton) {
         
-        let newTodo=Todo()
-        newTodo.name=lblname.text!
-        newTodo.notes=lblnotes.text!
-        newTodo.status=false
-        
         let realm = try! Realm()
         
-        // Persist your data easily
-        try! realm.write {
-            //Adding Object Realm DB
-            realm.add(newTodo)
-            //Calling delgate function in Tableview for updating List.
-            delegate?.saveTask(data: newTodo)
-            //Pop up last activity
-            self.navigationController?.popViewController(animated: true)
+        if(todosingle.name != nil){
+            try! realm.write {
+                //Updating Object Realm DB
+                todosingle.name = lblname.text!
+                todosingle.notes = lblnotes.text!
+                //Calling delgate function in Tableview for updating List.
+                delegate?.saveTask(data: todosingle)
+                //Pop up last activity
+                self.navigationController?.popViewController(animated: true)
+            }
+        }else{
+            let newTodo=Todo()
+            newTodo.name=lblname.text!
+            newTodo.notes=lblnotes.text!
+            newTodo.status=false
+            // Persist your data easily
+            try! realm.write {
+                //Adding Object Realm DB
+                realm.add(newTodo)
+                //Calling delgate function in Tableview for updating List.
+                delegate?.saveTask(data: newTodo)
+                //Pop up last activity
+                self.navigationController?.popViewController(animated: true)
+            }
         }
-
-        
-        
-        
     }
 
     /*
